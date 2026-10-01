@@ -1,0 +1,15 @@
+Difference Between Browser JavaScript and Node.js
+1. Environment
+Browser JavaScript runs inside a web browser, while Node.js runs outside the browser.
+2. Main Purpose
+Browser JavaScript is mainly used to make web pages interactive, while Node.js is mainly used for backend and server-side development.
+3. DOM Access
+Browser JavaScript can directly access and manipulate the DOM of a web page, while Node.js does not have direct access to the browser DOM.
+4. File System
+Node.js can work with files using its file system module, while browser JavaScript has restricted access to local files for security reasons.
+5. Global Object
+In browsers, the global object is window, while Node.js uses global as its global object.
+6. Modules
+Node.js provides built-in modules such as fs, path, and http for server-side development. Browser JavaScript mainly works with web APIs provided by the browser.
+7. Server Development
+Node.js can be used to create web servers and backend applications, while browser JavaScript normally runs on the client side.
