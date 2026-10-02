@@ -1,0 +1,6 @@
+node_modules/
+playwright-report/
+test-results/
+projects/lab-06-file-system/output.txt
+projects/lab-06-file-system/copy.txt
+projects/lab-06-file-system/notes.txt

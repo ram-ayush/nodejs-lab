@@ -1,0 +1,68 @@
+Three nested callbacks
+======================
+$ node callback-version.js
+
+Order placed: Pizza
+Preparing: Pizza
+Out for Delivery: Pizza
+Pizza: Delivered
+
+Random Promise outcomes
+=======================
+$ node promise-version.js (at least 5 runs)
+
+Run 1
+$ node promise-version.js
+Order placed: Burger
+Fulfilled: Burger is out for delivery!
+
+Run 2
+$ node promise-version.js
+Order placed: Burger
+Rejected: Sorry, the restaurant could not prepare Burger
+
+Run 3
+$ node promise-version.js
+Order placed: Burger
+Fulfilled: Burger is out for delivery!
+
+Run 4
+$ node promise-version.js
+Order placed: Burger
+Fulfilled: Burger is out for delivery!
+
+Run 5
+$ node promise-version.js
+Order placed: Burger
+Fulfilled: Burger is out for delivery!
+
+Promise chaining
+================
+$ node chaining-version.js
+
+Order Placed: Pasta
+Preparing: Pasta
+Out for Delivery: Pasta
+Delivered: Pasta
+
+Async / await
+=============
+$ node async-await-version.js
+
+Order Placed: Pasta
+Preparing: Pasta
+Out for Delivery: Pasta
+Delivered: Pasta
+
+Concurrent orders
+=================
+$ node concurrent-orders.js
+
+Placing 3 orders at once...
+Order placed: Pizza (1657ms)
+Order placed: Burger (1816ms)
+Order placed: Coffee (1579ms)
+Pizza is out for delivery!
+Burger is out for delivery!
+Coffee is out for delivery!
+All orders: 1.830s

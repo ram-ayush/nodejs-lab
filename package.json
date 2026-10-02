@@ -1,12 +1,23 @@
 {
-  "name": "lab-01",
+  "name": "nodejs-lab",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node scripts/serve.mjs",
+    "build": "node scripts/build-site.mjs",
+    "test": "node --test tests/labs.test.cjs",
+    "capture": "node scripts/capture-output.mjs",
+    "screenshots": "node scripts/screenshots.mjs",
+    "test:website": "node scripts/check-website.mjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "Six runnable Node.js lab projects and an interactive source-code portfolio.",
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
+  }
 }

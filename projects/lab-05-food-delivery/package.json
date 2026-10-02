@@ -1,0 +1,12 @@
+{
+  "name": "lab-05-food-delivery",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node async-await-version.js",
+    "callback": "node callback-version.js",
+    "promise": "node promise-version.js",
+    "chain": "node chaining-version.js",
+    "concurrent": "node concurrent-orders.js"
+  }
+}

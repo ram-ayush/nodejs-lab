@@ -1,0 +1,10 @@
+Why does readFile not block, while readFileSync does?
+In read-async.js the line after readFile appears before the file contents. The call schedules file input/output and returns, allowing the current JavaScript execution to continue. Many file operations use libuv's worker pool, and their completion callbacks are later scheduled on the main JavaScript thread. In read-sync.js the main JavaScript thread waits until readFileSync returns the data. As a result the file contents appear first, and the AFTER message appears only once the read finishes.
+
+What if two people append a note at the same moment?
+Both processes can open the same notes file in append mode and attempt to write entries concurrently. The order of their entries is not guaranteed because scheduling can differ between runs. Append behavior varies with the operating system and file system, so larger or split writes should not be assumed to form a universally atomic transaction. A read during an append could also see an incomplete snapshot of the latest work. For a shared application I would serialize writes through one service or use a database with suitable concurrency controls.
+
+Observed file operations
+writeFile replaces the previous contents, so writing different text a second time removes the first text.
+appendFile adds text at the end, so repeated runs add repeated lines.
+Deleting output.txt a second time reports ENOENT because the first deletion already removed that file.

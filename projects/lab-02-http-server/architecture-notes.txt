@@ -1,0 +1,8 @@
+What is the Event Loop?
+The event loop coordinates when JavaScript callbacks can run. A server can start an input/output operation and keep handling other work while that operation is pending. When the operation completes, its callback becomes eligible to run in the appropriate phase. A long synchronous calculation still blocks JavaScript from handling other requests. Nonblocking operations help one process serve many clients without waiting on each one in sequence.
+
+Is Node.js single-threaded or multi-threaded?
+Ordinary JavaScript in one Node.js isolate runs on a single main thread. Node.js also uses operating-system facilities and a worker pool for some operations, including many file-system operations. The worker_threads module can run JavaScript on additional threads when a program explicitly creates workers. Therefore the whole runtime is not limited to one thread, even though a typical request handler executes on the main JavaScript thread. CPU-heavy synchronous handlers can block that thread.
+
+What is the role of libuv?
+libuv is a library that helps Node.js implement its event loop and asynchronous input/output. It provides abstractions for timers, networking, and other operating-system features. It uses a thread pool for operations that cannot be handled through nonblocking operating-system interfaces, including many file-system calls. Completion notifications let Node.js schedule the corresponding JavaScript callback. libuv provides this support across different operating systems.

@@ -1,0 +1,109 @@
+{
+  "capturedAt": "2026-10-02T07:41:41.907Z",
+  "nodeVersion": "v24.21.0",
+  "records": {
+    "getting-started": [
+      {
+        "title": "Student profile & data types",
+        "command": "node app.js",
+        "output": "Welcome to Node.js\nName: Ayush Ram Tripathi\nScholar Number: 23145004\nCourse: BCA\nSemester: VII\nCollege: DSVV\n\nHello Node.js\nLearning Backend Development\nToday's Lab Completed Successfully\n\nData types:\nstudentName: Ayush Ram Tripathi | typeof: string\nage: 21 | typeof: number\nisStudent: true | typeof: boolean\naddress: undefined | typeof: undefined\nresult: null | typeof: object",
+        "image": "output.png"
+      },
+      {
+        "title": "Verification runtime",
+        "command": "node -v && npm -v",
+        "output": "node -v\nv24.21.0\n\nnpm -v\n11.6.2",
+        "image": "runtime-version.png"
+      }
+    ],
+    "http-server": [
+      {
+        "title": "Welcome route",
+        "command": "node server.js\n# GET requests against the running server",
+        "output": "GET /\nHTTP 200\nContent-Type: text/plain; charset=utf-8\n\nWelcome to Node.js!\nName: Ayush Ram Tripathi\nScholar Number: 23145004\nCourse: BCA",
+        "image": "server-running.png"
+      },
+      {
+        "title": "Routes & JSON profile",
+        "command": "node server.js\n# GET requests against the running server",
+        "output": "GET /\nHTTP 200\nContent-Type: text/plain; charset=utf-8\n\nWelcome to Node.js!\nName: Ayush Ram Tripathi\nScholar Number: 23145004\nCourse: BCA\n\n────────────────────────────────────────────────\n\nGET /about\nHTTP 200\nContent-Type: text/plain; charset=utf-8\n\nI am Ayush Ram Tripathi, a BCA student learning backend development with Node.js.\n\n────────────────────────────────────────────────\n\nGET /college\nHTTP 200\nContent-Type: text/plain; charset=utf-8\n\nCollege: DSVV\nSemester: VII\n\n────────────────────────────────────────────────\n\nGET /profile\nHTTP 200\nContent-Type: application/json; charset=utf-8\n\n{\n  \"name\": \"Ayush Ram Tripathi\",\n  \"scholarNumber\": \"23145004\",\n  \"course\": \"BCA\",\n  \"semester\": \"VII\",\n  \"college\": \"DSVV\"\n}\n\n────────────────────────────────────────────────\n\nGET /unknown\nHTTP 404\nContent-Type: text/plain; charset=utf-8\n\nPage Not Found",
+        "image": "routes-output.png"
+      }
+    ],
+    "student-directory": [
+      {
+        "title": "Student directory & bonus",
+        "command": "node students-server.js\n# GET requests against the running server",
+        "output": "GET /students\nHTTP 200\nContent-Type: application/json; charset=utf-8\n\n[\n  {\n    \"id\": 1,\n    \"name\": \"Aman\",\n    \"course\": \"BCA\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Nandani\",\n    \"course\": \"BCA\"\n  },\n  {\n    \"id\": 3,\n    \"name\": \"Abhishek\",\n    \"course\": \"BIT\"\n  }\n]\n\n────────────────────────────────────────────────\n\nGET /students/1\nHTTP 200\nContent-Type: application/json; charset=utf-8\n\n{\n  \"id\": 1,\n  \"name\": \"Aman\",\n  \"course\": \"BCA\"\n}\n\n────────────────────────────────────────────────\n\nGET /students/2\nHTTP 200\nContent-Type: application/json; charset=utf-8\n\n{\n  \"id\": 2,\n  \"name\": \"Nandani\",\n  \"course\": \"BCA\"\n}\n\n────────────────────────────────────────────────\n\nGET /students/99\nHTTP 404\nContent-Type: application/json; charset=utf-8\n\n{\n  \"error\": \"Student not found\"\n}\n\n────────────────────────────────────────────────\n\nGET /students/abc\nHTTP 400\nContent-Type: application/json; charset=utf-8\n\n{\n  \"error\": \"ID must be a positive integer\"\n}\n\n────────────────────────────────────────────────\n\nGET /students/course/BCA\nHTTP 200\nContent-Type: application/json; charset=utf-8\n\n[\n  {\n    \"id\": 1,\n    \"name\": \"Aman\",\n    \"course\": \"BCA\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Nandani\",\n    \"course\": \"BCA\"\n  }\n]",
+        "image": "students-output.png"
+      },
+      {
+        "title": "Book directory",
+        "command": "node students-server.js\n# GET requests against the running server",
+        "output": "GET /items\nHTTP 200\nContent-Type: application/json; charset=utf-8\n\n[\n  {\n    \"id\": 1,\n    \"title\": \"The Hobbit\",\n    \"author\": \"J. R. R. Tolkien\"\n  },\n  {\n    \"id\": 2,\n    \"title\": \"The Little Prince\",\n    \"author\": \"Antoine de Saint-Exupery\"\n  },\n  {\n    \"id\": 3,\n    \"title\": \"Wings of Fire\",\n    \"author\": \"A. P. J. Abdul Kalam\"\n  },\n  {\n    \"id\": 4,\n    \"title\": \"The Alchemist\",\n    \"author\": \"Paulo Coelho\"\n  },\n  {\n    \"id\": 5,\n    \"title\": \"A Brief History of Time\",\n    \"author\": \"Stephen Hawking\"\n  }\n]\n\n────────────────────────────────────────────────\n\nGET /items/1\nHTTP 200\nContent-Type: application/json; charset=utf-8\n\n{\n  \"id\": 1,\n  \"title\": \"The Hobbit\",\n  \"author\": \"J. R. R. Tolkien\"\n}\n\n────────────────────────────────────────────────\n\nGET /items/99\nHTTP 404\nContent-Type: application/json; charset=utf-8\n\n{\n  \"error\": \"Item not found\"\n}",
+        "image": "items-output.png"
+      }
+    ],
+    "advanced-search": [
+      {
+        "title": "Search, filters, sorting & validation",
+        "command": "node advanced-server.js\n# GET requests against the running server",
+        "output": "GET /students\nHTTP 200\nContent-Type: application/json; charset=utf-8\n\n[\n  {\n    \"id\": 1,\n    \"name\": \"Aman\",\n    \"course\": \"BCA\",\n    \"marks\": 72\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Nandani\",\n    \"course\": \"BCA\",\n    \"marks\": 91\n  },\n  {\n    \"id\": 3,\n    \"name\": \"Abhishek\",\n    \"course\": \"BIT\",\n    \"marks\": 58\n  },\n  {\n    \"id\": 4,\n    \"name\": \"Chandan\",\n    \"course\": \"BCA\",\n    \"marks\": 64\n  },\n  {\n    \"id\": 5,\n    \"name\": \"Sanya\",\n    \"course\": \"BIT\",\n    \"marks\": 85\n  },\n  {\n    \"id\": 6,\n    \"name\": \"Ayush\",\n    \"course\": \"BCA\",\n    \"marks\": 96\n  },\n  {\n    \"id\": 7,\n    \"name\": \"Priya\",\n    \"course\": \"BIT\",\n    \"marks\": 43\n  },\n  {\n    \"id\": 8,\n    \"name\": \"Rahul\",\n    \"course\": \"BCA\",\n    \"marks\": 52\n  }\n]\n\n────────────────────────────────────────────────\n\nGET /students?course=BCA\nHTTP 200\nContent-Type: application/json; charset=utf-8\n\n[\n  {\n    \"id\": 1,\n    \"name\": \"Aman\",\n    \"course\": \"BCA\",\n    \"marks\": 72\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Nandani\",\n    \"course\": \"BCA\",\n    \"marks\": 91\n  },\n  {\n    \"id\": 4,\n    \"name\": \"Chandan\",\n    \"course\": \"BCA\",\n    \"marks\": 64\n  },\n  {\n    \"id\": 6,\n    \"name\": \"Ayush\",\n    \"course\": \"BCA\",\n    \"marks\": 96\n  },\n  {\n    \"id\": 8,\n    \"name\": \"Rahul\",\n    \"course\": \"BCA\",\n    \"marks\": 52\n  }\n]\n\n────────────────────────────────────────────────\n\nGET /students?minMarks=60\nHTTP 200\nContent-Type: application/json; charset=utf-8\n\n[\n  {\n    \"id\": 1,\n    \"name\": \"Aman\",\n    \"course\": \"BCA\",\n    \"marks\": 72\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Nandani\",\n    \"course\": \"BCA\",\n    \"marks\": 91\n  },\n  {\n    \"id\": 4,\n    \"name\": \"Chandan\",\n    \"course\": \"BCA\",\n    \"marks\": 64\n  },\n  {\n    \"id\": 5,\n    \"name\": \"Sanya\",\n    \"course\": \"BIT\",\n    \"marks\": 85\n  },\n  {\n    \"id\": 6,\n    \"name\": \"Ayush\",\n    \"course\": \"BCA\",\n    \"marks\": 96\n  }\n]\n\n────────────────────────────────────────────────\n\nGET /students?search=a\nHTTP 200\nContent-Type: application/json; charset=utf-8\n\n[\n  {\n    \"id\": 1,\n    \"name\": \"Aman\",\n    \"course\": \"BCA\",\n    \"marks\": 72\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Nandani\",\n    \"course\": \"BCA\",\n    \"marks\": 91\n  },\n  {\n    \"id\": 3,\n    \"name\": \"Abhishek\",\n    \"course\": \"BIT\",\n    \"marks\": 58\n  },\n  {\n    \"id\": 4,\n    \"name\": \"Chandan\",\n    \"course\": \"BCA\",\n    \"marks\": 64\n  },\n  {\n    \"id\": 5,\n    \"name\": \"Sanya\",\n    \"course\": \"BIT\",\n    \"marks\": 85\n  },\n  {\n    \"id\": 6,\n    \"name\": \"Ayush\",\n    \"course\": \"BCA\",\n    \"marks\": 96\n  },\n  {\n    \"id\": 7,\n    \"name\": \"Priya\",\n    \"course\": \"BIT\",\n    \"marks\": 43\n  },\n  {\n    \"id\": 8,\n    \"name\": \"Rahul\",\n    \"course\": \"BCA\",\n    \"marks\": 52\n  }\n]\n\n────────────────────────────────────────────────\n\nGET /students?sort=marks&order=desc\nHTTP 200\nContent-Type: application/json; charset=utf-8\n\n[\n  {\n    \"id\": 6,\n    \"name\": \"Ayush\",\n    \"course\": \"BCA\",\n    \"marks\": 96\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Nandani\",\n    \"course\": \"BCA\",\n    \"marks\": 91\n  },\n  {\n    \"id\": 5,\n    \"name\": \"Sanya\",\n    \"course\": \"BIT\",\n    \"marks\": 85\n  },\n  {\n    \"id\": 1,\n    \"name\": \"Aman\",\n    \"course\": \"BCA\",\n    \"marks\": 72\n  },\n  {\n    \"id\": 4,\n    \"name\": \"Chandan\",\n    \"course\": \"BCA\",\n    \"marks\": 64\n  },\n  {\n    \"id\": 3,\n    \"name\": \"Abhishek\",\n    \"course\": \"BIT\",\n    \"marks\": 58\n  },\n  {\n    \"id\": 8,\n    \"name\": \"Rahul\",\n    \"course\": \"BCA\",\n    \"marks\": 52\n  },\n  {\n    \"id\": 7,\n    \"name\": \"Priya\",\n    \"course\": \"BIT\",\n    \"marks\": 43\n  }\n]\n\n────────────────────────────────────────────────\n\nGET /students?sort=xyz\nHTTP 400\nContent-Type: application/json; charset=utf-8\n\n{\n  \"error\": \"sort must be name or marks\"\n}\n\n────────────────────────────────────────────────\n\nGET /students?minMarks=abc\nHTTP 400\nContent-Type: application/json; charset=utf-8\n\n{\n  \"error\": \"minMarks must be a number\"\n}\n\n────────────────────────────────────────────────\n\nGET /students?course=BCA&minMarks=60&search=a&sort=marks&order=desc\nHTTP 200\nContent-Type: application/json; charset=utf-8\n\n[\n  {\n    \"id\": 6,\n    \"name\": \"Ayush\",\n    \"course\": \"BCA\",\n    \"marks\": 96\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Nandani\",\n    \"course\": \"BCA\",\n    \"marks\": 91\n  },\n  {\n    \"id\": 1,\n    \"name\": \"Aman\",\n    \"course\": \"BCA\",\n    \"marks\": 72\n  },\n  {\n    \"id\": 4,\n    \"name\": \"Chandan\",\n    \"course\": \"BCA\",\n    \"marks\": 64\n  }\n]\n\n────────────────────────────────────────────────\n\nGET /students/course/BCA?minMarks=60&sort=marks&order=desc\nHTTP 200\nContent-Type: application/json; charset=utf-8\n\n[\n  {\n    \"id\": 6,\n    \"name\": \"Ayush\",\n    \"course\": \"BCA\",\n    \"marks\": 96\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Nandani\",\n    \"course\": \"BCA\",\n    \"marks\": 91\n  },\n  {\n    \"id\": 1,\n    \"name\": \"Aman\",\n    \"course\": \"BCA\",\n    \"marks\": 72\n  },\n  {\n    \"id\": 4,\n    \"name\": \"Chandan\",\n    \"course\": \"BCA\",\n    \"marks\": 64\n  }\n]\n\n────────────────────────────────────────────────\n\nGET /students?sort=name\nHTTP 200\nContent-Type: application/json; charset=utf-8\n\n[\n  {\n    \"id\": 3,\n    \"name\": \"Abhishek\",\n    \"course\": \"BIT\",\n    \"marks\": 58\n  },\n  {\n    \"id\": 1,\n    \"name\": \"Aman\",\n    \"course\": \"BCA\",\n    \"marks\": 72\n  },\n  {\n    \"id\": 6,\n    \"name\": \"Ayush\",\n    \"course\": \"BCA\",\n    \"marks\": 96\n  },\n  {\n    \"id\": 4,\n    \"name\": \"Chandan\",\n    \"course\": \"BCA\",\n    \"marks\": 64\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Nandani\",\n    \"course\": \"BCA\",\n    \"marks\": 91\n  },\n  {\n    \"id\": 7,\n    \"name\": \"Priya\",\n    \"course\": \"BIT\",\n    \"marks\": 43\n  },\n  {\n    \"id\": 8,\n    \"name\": \"Rahul\",\n    \"course\": \"BCA\",\n    \"marks\": 52\n  },\n  {\n    \"id\": 5,\n    \"name\": \"Sanya\",\n    \"course\": \"BIT\",\n    \"marks\": 85\n  }\n]\n\n────────────────────────────────────────────────\n\nGET /students?order=wrong\nHTTP 400\nContent-Type: application/json; charset=utf-8\n\n{\n  \"error\": \"order must be asc or desc\"\n}",
+        "image": "advanced-output.png"
+      }
+    ],
+    "food-delivery": [
+      {
+        "title": "Three nested callbacks",
+        "command": "node callback-version.js",
+        "output": "Order placed: Pizza\nPreparing: Pizza\nOut for Delivery: Pizza\nPizza: Delivered",
+        "image": "callback-output.png",
+        "source": "callback-version.js"
+      },
+      {
+        "title": "Random Promise outcomes",
+        "command": "node promise-version.js (at least 5 runs)",
+        "output": "Run 1\n$ node promise-version.js\nOrder placed: Burger\nFulfilled: Burger is out for delivery!\n\nRun 2\n$ node promise-version.js\nOrder placed: Burger\nRejected: Sorry, the restaurant could not prepare Burger\n\nRun 3\n$ node promise-version.js\nOrder placed: Burger\nFulfilled: Burger is out for delivery!\n\nRun 4\n$ node promise-version.js\nOrder placed: Burger\nFulfilled: Burger is out for delivery!\n\nRun 5\n$ node promise-version.js\nOrder placed: Burger\nFulfilled: Burger is out for delivery!",
+        "image": "promise-output.png"
+      },
+      {
+        "title": "Promise chaining",
+        "command": "node chaining-version.js",
+        "output": "Order Placed: Pasta\nPreparing: Pasta\nOut for Delivery: Pasta\nDelivered: Pasta",
+        "image": "chaining-output.png"
+      },
+      {
+        "title": "Async / await",
+        "command": "node async-await-version.js",
+        "output": "Order Placed: Pasta\nPreparing: Pasta\nOut for Delivery: Pasta\nDelivered: Pasta",
+        "image": "async-await-output.png"
+      },
+      {
+        "title": "Concurrent orders",
+        "command": "node concurrent-orders.js",
+        "output": "Placing 3 orders at once...\nOrder placed: Pizza (1657ms)\nOrder placed: Burger (1816ms)\nOrder placed: Coffee (1579ms)\nPizza is out for delivery!\nBurger is out for delivery!\nCoffee is out for delivery!\nAll orders: 1.830s",
+        "image": "concurrent-output.png"
+      }
+    ],
+    "file-system": [
+      {
+        "title": "Async versus sync reads",
+        "command": "node read-async.js\nnode read-sync.js",
+        "output": "$ node read-async.js\nThis line runs BEFORE the file content is printed.\nWelcome to the Node.js file system lab.\nAsynchronous operations let other JavaScript continue while a file is being read.\nSmall command-line tools can save useful information in plain text files.\n\n$ node read-sync.js\nWelcome to the Node.js file system lab.\nAsynchronous operations let other JavaScript continue while a file is being read.\nSmall command-line tools can save useful information in plain text files.\nThis line runs AFTER the file has been fully read.",
+        "image": "read-comparison.png"
+      },
+      {
+        "title": "Write, append, delete & copy",
+        "command": "node write-file.js\nnode append-file.js\nnode delete-file.js\nnode async-await-version.js",
+        "output": "$ node write-file.js\nFile written successfully.\noutput.txt: Hello from Lab 06!\n\n$ node write-file.js \"This replaces the first message.\"\nFile written successfully.\noutput.txt: This replaces the first message.\n\n$ node append-file.js\nContent appended successfully.\n\n$ node append-file.js\nContent appended successfully.\n\n$ node append-file.js\nContent appended successfully.\n\noutput.txt after 3 appends:\nThis replaces the first message.\nThis line was appended.\nThis line was appended.\nThis line was appended.\n\n$ node delete-file.js\nFile deleted successfully.\n\n$ node delete-file.js (again)\nENOENT: output.txt does not exist; it may have already been deleted.\nExit code: 1\n\n$ node async-await-version.js\nCopied successfully.\n\ncopy.txt matches sample.txt: true\nWelcome to the Node.js file system lab.\nAsynchronous operations let other JavaScript continue while a file is being read.\nSmall command-line tools can save useful information in plain text files.",
+        "image": "file-operations.png"
+      },
+      {
+        "title": "Persistent notes app",
+        "command": "node add-note.js \"Submit Lab 06 by Friday\"\nnode read-notes.js",
+        "output": "$ node read-notes.js\nNo notes found yet.\n\n$ node add-note.js \"Submit Lab 06 by Friday\"\nNote added!\n\n$ node add-note.js \"Revise the Event Loop before the mid-term\"\nNote added!\n\n$ node read-notes.js\n[2026-10-02T07:41:41.753Z] Submit Lab 06 by Friday\n[2026-10-02T07:41:41.819Z] Revise the Event Loop before the mid-term",
+        "image": "notes-app-output.png"
+      }
+    ]
+  }
+}

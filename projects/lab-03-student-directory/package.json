@@ -1,0 +1,7 @@
+{
+  "name": "lab-03-student-directory",
+  "version": "1.0.0",
+  "private": true,
+  "main": "students-server.js",
+  "scripts": { "start": "node students-server.js" }
+}

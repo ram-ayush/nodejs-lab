@@ -1,0 +1,31 @@
+Student profile & data types
+============================
+$ node app.js
+
+Welcome to Node.js
+Name: Ayush Ram Tripathi
+Scholar Number: 23145004
+Course: BCA
+Semester: VII
+College: DSVV
+
+Hello Node.js
+Learning Backend Development
+Today's Lab Completed Successfully
+
+Data types:
+studentName: Ayush Ram Tripathi | typeof: string
+age: 21 | typeof: number
+isStudent: true | typeof: boolean
+address: undefined | typeof: undefined
+result: null | typeof: object
+
+Verification runtime
+====================
+$ node -v && npm -v
+
+node -v
+v24.21.0
+
+npm -v
+11.6.2

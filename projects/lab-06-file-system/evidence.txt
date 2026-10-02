@@ -1,0 +1,79 @@
+Async versus sync reads
+=======================
+$ node read-async.js
+node read-sync.js
+
+$ node read-async.js
+This line runs BEFORE the file content is printed.
+Welcome to the Node.js file system lab.
+Asynchronous operations let other JavaScript continue while a file is being read.
+Small command-line tools can save useful information in plain text files.
+
+$ node read-sync.js
+Welcome to the Node.js file system lab.
+Asynchronous operations let other JavaScript continue while a file is being read.
+Small command-line tools can save useful information in plain text files.
+This line runs AFTER the file has been fully read.
+
+Write, append, delete & copy
+============================
+$ node write-file.js
+node append-file.js
+node delete-file.js
+node async-await-version.js
+
+$ node write-file.js
+File written successfully.
+output.txt: Hello from Lab 06!
+
+$ node write-file.js "This replaces the first message."
+File written successfully.
+output.txt: This replaces the first message.
+
+$ node append-file.js
+Content appended successfully.
+
+$ node append-file.js
+Content appended successfully.
+
+$ node append-file.js
+Content appended successfully.
+
+output.txt after 3 appends:
+This replaces the first message.
+This line was appended.
+This line was appended.
+This line was appended.
+
+$ node delete-file.js
+File deleted successfully.
+
+$ node delete-file.js (again)
+ENOENT: output.txt does not exist; it may have already been deleted.
+Exit code: 1
+
+$ node async-await-version.js
+Copied successfully.
+
+copy.txt matches sample.txt: true
+Welcome to the Node.js file system lab.
+Asynchronous operations let other JavaScript continue while a file is being read.
+Small command-line tools can save useful information in plain text files.
+
+Persistent notes app
+====================
+$ node add-note.js "Submit Lab 06 by Friday"
+node read-notes.js
+
+$ node read-notes.js
+No notes found yet.
+
+$ node add-note.js "Submit Lab 06 by Friday"
+Note added!
+
+$ node add-note.js "Revise the Event Loop before the mid-term"
+Note added!
+
+$ node read-notes.js
+[2026-10-02T07:41:41.753Z] Submit Lab 06 by Friday
+[2026-10-02T07:41:41.819Z] Revise the Event Loop before the mid-term

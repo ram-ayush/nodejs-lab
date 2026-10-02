@@ -1,0 +1,9 @@
+Browser JavaScript and Node.js
+
+1. Runtime: browser JavaScript executes inside a browser; Node.js executes as a standalone process.
+2. Purpose: browser scripts usually build interactive interfaces; Node.js commonly powers servers, command-line tools, and automation.
+3. DOM: browsers expose document and HTML elements; Node.js does not provide a browser DOM.
+4. Files: Node.js exposes the fs module; browser file access is restricted and usually requires user selection or permission.
+5. Globals: browsers expose window, while Node.js exposes global. Both support globalThis.
+6. Modules: Node.js provides built-in modules such as node:http, node:fs, and node:path. Browsers provide APIs such as the DOM and localStorage.
+7. Process: Node.js exposes process for environment variables, arguments, and exit codes; browser scripts have no Node.js process object.

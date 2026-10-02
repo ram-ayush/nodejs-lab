@@ -1,0 +1,404 @@
+Search, filters, sorting & validation
+=====================================
+$ node advanced-server.js
+# GET requests against the running server
+
+GET /students
+HTTP 200
+Content-Type: application/json; charset=utf-8
+
+[
+  {
+    "id": 1,
+    "name": "Aman",
+    "course": "BCA",
+    "marks": 72
+  },
+  {
+    "id": 2,
+    "name": "Nandani",
+    "course": "BCA",
+    "marks": 91
+  },
+  {
+    "id": 3,
+    "name": "Abhishek",
+    "course": "BIT",
+    "marks": 58
+  },
+  {
+    "id": 4,
+    "name": "Chandan",
+    "course": "BCA",
+    "marks": 64
+  },
+  {
+    "id": 5,
+    "name": "Sanya",
+    "course": "BIT",
+    "marks": 85
+  },
+  {
+    "id": 6,
+    "name": "Ayush",
+    "course": "BCA",
+    "marks": 96
+  },
+  {
+    "id": 7,
+    "name": "Priya",
+    "course": "BIT",
+    "marks": 43
+  },
+  {
+    "id": 8,
+    "name": "Rahul",
+    "course": "BCA",
+    "marks": 52
+  }
+]
+
+────────────────────────────────────────────────
+
+GET /students?course=BCA
+HTTP 200
+Content-Type: application/json; charset=utf-8
+
+[
+  {
+    "id": 1,
+    "name": "Aman",
+    "course": "BCA",
+    "marks": 72
+  },
+  {
+    "id": 2,
+    "name": "Nandani",
+    "course": "BCA",
+    "marks": 91
+  },
+  {
+    "id": 4,
+    "name": "Chandan",
+    "course": "BCA",
+    "marks": 64
+  },
+  {
+    "id": 6,
+    "name": "Ayush",
+    "course": "BCA",
+    "marks": 96
+  },
+  {
+    "id": 8,
+    "name": "Rahul",
+    "course": "BCA",
+    "marks": 52
+  }
+]
+
+────────────────────────────────────────────────
+
+GET /students?minMarks=60
+HTTP 200
+Content-Type: application/json; charset=utf-8
+
+[
+  {
+    "id": 1,
+    "name": "Aman",
+    "course": "BCA",
+    "marks": 72
+  },
+  {
+    "id": 2,
+    "name": "Nandani",
+    "course": "BCA",
+    "marks": 91
+  },
+  {
+    "id": 4,
+    "name": "Chandan",
+    "course": "BCA",
+    "marks": 64
+  },
+  {
+    "id": 5,
+    "name": "Sanya",
+    "course": "BIT",
+    "marks": 85
+  },
+  {
+    "id": 6,
+    "name": "Ayush",
+    "course": "BCA",
+    "marks": 96
+  }
+]
+
+────────────────────────────────────────────────
+
+GET /students?search=a
+HTTP 200
+Content-Type: application/json; charset=utf-8
+
+[
+  {
+    "id": 1,
+    "name": "Aman",
+    "course": "BCA",
+    "marks": 72
+  },
+  {
+    "id": 2,
+    "name": "Nandani",
+    "course": "BCA",
+    "marks": 91
+  },
+  {
+    "id": 3,
+    "name": "Abhishek",
+    "course": "BIT",
+    "marks": 58
+  },
+  {
+    "id": 4,
+    "name": "Chandan",
+    "course": "BCA",
+    "marks": 64
+  },
+  {
+    "id": 5,
+    "name": "Sanya",
+    "course": "BIT",
+    "marks": 85
+  },
+  {
+    "id": 6,
+    "name": "Ayush",
+    "course": "BCA",
+    "marks": 96
+  },
+  {
+    "id": 7,
+    "name": "Priya",
+    "course": "BIT",
+    "marks": 43
+  },
+  {
+    "id": 8,
+    "name": "Rahul",
+    "course": "BCA",
+    "marks": 52
+  }
+]
+
+────────────────────────────────────────────────
+
+GET /students?sort=marks&order=desc
+HTTP 200
+Content-Type: application/json; charset=utf-8
+
+[
+  {
+    "id": 6,
+    "name": "Ayush",
+    "course": "BCA",
+    "marks": 96
+  },
+  {
+    "id": 2,
+    "name": "Nandani",
+    "course": "BCA",
+    "marks": 91
+  },
+  {
+    "id": 5,
+    "name": "Sanya",
+    "course": "BIT",
+    "marks": 85
+  },
+  {
+    "id": 1,
+    "name": "Aman",
+    "course": "BCA",
+    "marks": 72
+  },
+  {
+    "id": 4,
+    "name": "Chandan",
+    "course": "BCA",
+    "marks": 64
+  },
+  {
+    "id": 3,
+    "name": "Abhishek",
+    "course": "BIT",
+    "marks": 58
+  },
+  {
+    "id": 8,
+    "name": "Rahul",
+    "course": "BCA",
+    "marks": 52
+  },
+  {
+    "id": 7,
+    "name": "Priya",
+    "course": "BIT",
+    "marks": 43
+  }
+]
+
+────────────────────────────────────────────────
+
+GET /students?sort=xyz
+HTTP 400
+Content-Type: application/json; charset=utf-8
+
+{
+  "error": "sort must be name or marks"
+}
+
+────────────────────────────────────────────────
+
+GET /students?minMarks=abc
+HTTP 400
+Content-Type: application/json; charset=utf-8
+
+{
+  "error": "minMarks must be a number"
+}
+
+────────────────────────────────────────────────
+
+GET /students?course=BCA&minMarks=60&search=a&sort=marks&order=desc
+HTTP 200
+Content-Type: application/json; charset=utf-8
+
+[
+  {
+    "id": 6,
+    "name": "Ayush",
+    "course": "BCA",
+    "marks": 96
+  },
+  {
+    "id": 2,
+    "name": "Nandani",
+    "course": "BCA",
+    "marks": 91
+  },
+  {
+    "id": 1,
+    "name": "Aman",
+    "course": "BCA",
+    "marks": 72
+  },
+  {
+    "id": 4,
+    "name": "Chandan",
+    "course": "BCA",
+    "marks": 64
+  }
+]
+
+────────────────────────────────────────────────
+
+GET /students/course/BCA?minMarks=60&sort=marks&order=desc
+HTTP 200
+Content-Type: application/json; charset=utf-8
+
+[
+  {
+    "id": 6,
+    "name": "Ayush",
+    "course": "BCA",
+    "marks": 96
+  },
+  {
+    "id": 2,
+    "name": "Nandani",
+    "course": "BCA",
+    "marks": 91
+  },
+  {
+    "id": 1,
+    "name": "Aman",
+    "course": "BCA",
+    "marks": 72
+  },
+  {
+    "id": 4,
+    "name": "Chandan",
+    "course": "BCA",
+    "marks": 64
+  }
+]
+
+────────────────────────────────────────────────
+
+GET /students?sort=name
+HTTP 200
+Content-Type: application/json; charset=utf-8
+
+[
+  {
+    "id": 3,
+    "name": "Abhishek",
+    "course": "BIT",
+    "marks": 58
+  },
+  {
+    "id": 1,
+    "name": "Aman",
+    "course": "BCA",
+    "marks": 72
+  },
+  {
+    "id": 6,
+    "name": "Ayush",
+    "course": "BCA",
+    "marks": 96
+  },
+  {
+    "id": 4,
+    "name": "Chandan",
+    "course": "BCA",
+    "marks": 64
+  },
+  {
+    "id": 2,
+    "name": "Nandani",
+    "course": "BCA",
+    "marks": 91
+  },
+  {
+    "id": 7,
+    "name": "Priya",
+    "course": "BIT",
+    "marks": 43
+  },
+  {
+    "id": 8,
+    "name": "Rahul",
+    "course": "BCA",
+    "marks": 52
+  },
+  {
+    "id": 5,
+    "name": "Sanya",
+    "course": "BIT",
+    "marks": 85
+  }
+]
+
+────────────────────────────────────────────────
+
+GET /students?order=wrong
+HTTP 400
+Content-Type: application/json; charset=utf-8
+
+{
+  "error": "order must be asc or desc"
+}

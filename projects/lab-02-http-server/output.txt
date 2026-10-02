@@ -1,0 +1,66 @@
+Welcome route
+=============
+$ node server.js
+# GET requests against the running server
+
+GET /
+HTTP 200
+Content-Type: text/plain; charset=utf-8
+
+Welcome to Node.js!
+Name: Ayush Ram Tripathi
+Scholar Number: 23145004
+Course: BCA
+
+Routes & JSON profile
+=====================
+$ node server.js
+# GET requests against the running server
+
+GET /
+HTTP 200
+Content-Type: text/plain; charset=utf-8
+
+Welcome to Node.js!
+Name: Ayush Ram Tripathi
+Scholar Number: 23145004
+Course: BCA
+
+────────────────────────────────────────────────
+
+GET /about
+HTTP 200
+Content-Type: text/plain; charset=utf-8
+
+I am Ayush Ram Tripathi, a BCA student learning backend development with Node.js.
+
+────────────────────────────────────────────────
+
+GET /college
+HTTP 200
+Content-Type: text/plain; charset=utf-8
+
+College: DSVV
+Semester: VII
+
+────────────────────────────────────────────────
+
+GET /profile
+HTTP 200
+Content-Type: application/json; charset=utf-8
+
+{
+  "name": "Ayush Ram Tripathi",
+  "scholarNumber": "23145004",
+  "course": "BCA",
+  "semester": "VII",
+  "college": "DSVV"
+}
+
+────────────────────────────────────────────────
+
+GET /unknown
+HTTP 404
+Content-Type: text/plain; charset=utf-8
+
+Page Not Found

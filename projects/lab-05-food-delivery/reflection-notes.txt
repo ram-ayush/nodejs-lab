@@ -1,0 +1,5 @@
+Is Node.js frozen while a timer is waiting?
+No: setTimeout registers a timer and returns control so the rest of the program can continue. The event loop checks for timers that are eligible to run and schedules their callbacks when JavaScript can execute them. The delay is a minimum waiting period, not a promise that the callback runs at that exact instant. Other callbacks and incoming requests can run during the wait. Synchronous CPU-heavy work can still delay the timer because it blocks the main JavaScript thread.
+
+Why does Promise.all finish faster than three sequential awaits?
+Calling placeOrder three times starts all three timers before Promise.all waits for the results. For successful orders, total elapsed time is approximately the longest single delay plus scheduling overhead. Three separate await calls would start each order only after the previous one finishes, so their delays would add up. Promise.all returns results in the input order, even if orders finish in a different order. If any input promise rejects, Promise.all rejects promptly; it does not automatically cancel other operations that have already started.

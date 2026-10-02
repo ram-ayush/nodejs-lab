@@ -1,0 +1,15 @@
+{
+  "name": "lab-06-file-system",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node read-async.js",
+    "read:sync": "node read-sync.js",
+    "write": "node write-file.js",
+    "append": "node append-file.js",
+    "delete": "node delete-file.js",
+    "copy": "node async-await-version.js",
+    "note": "node add-note.js",
+    "notes": "node read-notes.js"
+  }
+}

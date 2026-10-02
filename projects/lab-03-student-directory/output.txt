@@ -1,0 +1,148 @@
+Student directory & bonus
+=========================
+$ node students-server.js
+# GET requests against the running server
+
+GET /students
+HTTP 200
+Content-Type: application/json; charset=utf-8
+
+[
+  {
+    "id": 1,
+    "name": "Aman",
+    "course": "BCA"
+  },
+  {
+    "id": 2,
+    "name": "Nandani",
+    "course": "BCA"
+  },
+  {
+    "id": 3,
+    "name": "Abhishek",
+    "course": "BIT"
+  }
+]
+
+────────────────────────────────────────────────
+
+GET /students/1
+HTTP 200
+Content-Type: application/json; charset=utf-8
+
+{
+  "id": 1,
+  "name": "Aman",
+  "course": "BCA"
+}
+
+────────────────────────────────────────────────
+
+GET /students/2
+HTTP 200
+Content-Type: application/json; charset=utf-8
+
+{
+  "id": 2,
+  "name": "Nandani",
+  "course": "BCA"
+}
+
+────────────────────────────────────────────────
+
+GET /students/99
+HTTP 404
+Content-Type: application/json; charset=utf-8
+
+{
+  "error": "Student not found"
+}
+
+────────────────────────────────────────────────
+
+GET /students/abc
+HTTP 400
+Content-Type: application/json; charset=utf-8
+
+{
+  "error": "ID must be a positive integer"
+}
+
+────────────────────────────────────────────────
+
+GET /students/course/BCA
+HTTP 200
+Content-Type: application/json; charset=utf-8
+
+[
+  {
+    "id": 1,
+    "name": "Aman",
+    "course": "BCA"
+  },
+  {
+    "id": 2,
+    "name": "Nandani",
+    "course": "BCA"
+  }
+]
+
+Book directory
+==============
+$ node students-server.js
+# GET requests against the running server
+
+GET /items
+HTTP 200
+Content-Type: application/json; charset=utf-8
+
+[
+  {
+    "id": 1,
+    "title": "The Hobbit",
+    "author": "J. R. R. Tolkien"
+  },
+  {
+    "id": 2,
+    "title": "The Little Prince",
+    "author": "Antoine de Saint-Exupery"
+  },
+  {
+    "id": 3,
+    "title": "Wings of Fire",
+    "author": "A. P. J. Abdul Kalam"
+  },
+  {
+    "id": 4,
+    "title": "The Alchemist",
+    "author": "Paulo Coelho"
+  },
+  {
+    "id": 5,
+    "title": "A Brief History of Time",
+    "author": "Stephen Hawking"
+  }
+]
+
+────────────────────────────────────────────────
+
+GET /items/1
+HTTP 200
+Content-Type: application/json; charset=utf-8
+
+{
+  "id": 1,
+  "title": "The Hobbit",
+  "author": "J. R. R. Tolkien"
+}
+
+────────────────────────────────────────────────
+
+GET /items/99
+HTTP 404
+Content-Type: application/json; charset=utf-8
+
+{
+  "error": "Item not found"
+}
