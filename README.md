@@ -22,6 +22,10 @@ The portfolio has project search, category filters, a line-numbered code viewer,
 
 The website displays captured execution from the Node programs. API projects run separately with Node.js; static hosting does not execute their servers.
 
+### View on your phone
+
+Connect the phone and computer to the same Wi-Fi, keep `npm start` running, and open `http://YOUR_COMPUTER_IPV4:4173` in your phone's browser. Find the computer's Wi-Fi IPv4 address with `ipconfig` in PowerShell. The preview server listens on the local network by default; set `HOST=127.0.0.1` to limit it to the computer. If Windows Firewall prompts, allow Node.js on the network you are using.
+
 ## Projects
 
 | Lab | Project folder | Topics | Main command |

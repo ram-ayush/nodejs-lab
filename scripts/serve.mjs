@@ -27,5 +27,6 @@ export function createSiteServer() {
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const port = Number(process.env.PORT || 4173);
-  createSiteServer().listen(port, '127.0.0.1', () => console.log(`Node.js Lab → http://localhost:${port}`));
+  const host = process.env.HOST || '0.0.0.0';
+  createSiteServer().listen(port, host, () => console.log(`Node.js Lab → http://localhost:${port} (listening on ${host})`));
 }
